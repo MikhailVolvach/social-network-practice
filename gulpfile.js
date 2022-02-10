@@ -36,13 +36,13 @@ function watcher() {
     gulp.watch(path.watch.images, images);
 }
 
-export { svgSprive };
+// export { svgSprive };
 
 // Последовательная обработка шрифтов
 const fonts = gulp.series(otfToTtf, ttfToWoff, fontsStyle); // Строгая последовательность
 
 // Распараллеливание задач копирования и обработки html файлов.
-const mainTasks = gulp.series(fonts, gulp.parallel(copy, html, scss, js, images));
+const mainTasks = gulp.series(fonts, gulp.parallel(copy, html, scss, js, images, svgSprive));
 
 // Построение сценариев выполнения задач
 const dev = gulp.series(reset, mainTasks, gulp.parallel(watcher, server)); // reset только в начале

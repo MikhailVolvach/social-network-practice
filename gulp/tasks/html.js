@@ -15,8 +15,8 @@ export const html = () => {
         )
         .pipe(fileInclude())
         .pipe(app.plugins.replace(/@img\//g, "img/"))
-        .pipe(app.plugins.replace(/@svg\//g, "img/icons/"))
-        .pipe(app.plugins.replace(/(img\/icons)\/(\w+).svg/, "img/icons/icons.svg#$2"))
+        .pipe(app.plugins.replace(/(@svg)\/(\w+).svg/g, "img/icons/icons.svg#$2"))
+        // .pipe(app.plugins.replace(/(img\/icons)\/(\w+).svg/, "img/icons/icons.svg#$2"))
         .pipe(app.plugins.if(app.isBuild, WebpHtmlNosvg()))
         .pipe(
             app.plugins.if(

@@ -1,1 +1,34 @@
 @import "fonts";
+
+// Обнуление стилей
+@import "_clear";
+@import "_svgStyles";
+
+html {
+    font-family: GothamPro;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.wrapper {
+}
+
+.row {
+    display: flex;
+    max-width: 1440px;
+    margin: 0px auto;
+
+    // .row__column
+    &__column {
+        height: 100%;
+        flex: 0 1 82%;
+        
+        // .row__column--side
+        &--side {
+            flex: 0 1 9%;
+        }
+    }
+}
+
+// Шапка сайта
+@import "_header";
